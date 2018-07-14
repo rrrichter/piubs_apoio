@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Calls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data criacao</th>
+      <th>Titulo</th>
+      <th>Status</th>
+      <th>Severidade</th>
+      <th>Municipio</th>
+      <th>Uf</th>
+      <th>Categoria</th>
+      <th>Sei</th>
+      <th>Answer</th>
+      <th colspan="3"> Opções</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calls.each do |call| %>
+      <tr>
+        <td><%= call.data_criacao %></td>
+        <td><%= call.titulo %></td>
+        <td><%= call.status %></td>
+        <td><%= call.severidade %></td>
+        <td><%= call.municipio %></td>
+        <td><%= call.uf %></td>
+        <td><%= call.categoria_id %></td>
+        <td><%= call.sei %></td>
+        <td><%= call.answer.resposta %></td>
+        <td><%= link_to 'Visualizar', call %></td>
+        <td><%= link_to 'Editar', edit_call_path(call) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Call', new_call_path %>
