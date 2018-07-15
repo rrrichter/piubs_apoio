@@ -6,9 +6,6 @@
   <div class="form-inputs">
     <%= f.input :titulo %>
     <%= f.input :pergunta %>
-    <%= f.input :data_criacao %>
-    <%= f.input :data_fechamento %>
-    <%= f.input :status %>
     <%= f.input :versao %>
     <%= f.input :perfil_acesso %>
     <%= f.input :detalhe_funcionalidade %>
@@ -16,13 +13,13 @@
     <%= f.input :municipio %>
     <%= f.input :uf %>
     <%= f.input :categoria_id %>
-    <%= f.input :requerente %>
     <%= f.input :sei %>
 
 <!--<%= f.collection_select(:answer_id, @answers, :id, :resposta, {include_blank: "Selecione uma resposta: "}) %> -->
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, value: 'Cadastrar' ,class: 'btn btn-success btn-sm', style: 'color: white'  %>
+    <%= link_to 'Voltar', calls_path, class: 'btn btn-success btn-sm', style: 'color: white'  %>
   </div>
 <% end %>

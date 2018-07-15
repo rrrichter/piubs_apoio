@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <hr/>
 <%= form_tag(call_path, remote: true, :method => :get ) do %>
   <%= text_field_tag 'search', nil, placeholder: 'Pequisar respostas no FAQ...'%>
@@ -9,80 +9,4 @@
 </ul>
 
 <hr/>
-<p>
-  <strong>Titulo:</strong>
-  <%= @call.titulo %>
-</p>
-
-<p>
-  <strong>Pergunta:</strong>
-  <%= @call.pergunta %>
-</p>
-
-<p>
-  <strong>Data criacao:</strong>
-  <%= @call.data_criacao %>
-</p>
-
-<p>
-  <strong>Data fechamento:</strong>
-  <%= @call.data_fechamento %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @call.status %>
-</p>
-
-<p>
-  <strong>Versao:</strong>
-  <%= @call.versao %>
-</p>
-
-<p>
-  <strong>Perfil acesso:</strong>
-  <%= @call.perfil_acesso %>
-</p>
-
-<p>
-  <strong>Detalhe funcionalidade:</strong>
-  <%= @call.detalhe_funcionalidade %>
-</p>
-
-<p>
-  <strong>Severidade:</strong>
-  <%= @call.severidade %>
-</p>
-
-<p>
-  <strong>Municipio:</strong>
-  <%= @call.municipio %>
-</p>
-
-<p>
-  <strong>Uf:</strong>
-  <%= @call.uf %>
-</p>
-
-<p>
-  <strong>Categoria:</strong>
-  <%= @call.categoria_id %>
-</p>
-
-<p>
-  <strong>Requerente:</strong>
-  <%= @call.requerente %>
-</p>
-
-<p>
-  <strong>Sei:</strong>
-  <%= @call.sei %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= @call.answer.resposta %>
-</p>
-
-<%= link_to 'Edit', edit_call_path(@call) %> |
-<%= link_to 'Back', calls_path %>
+<%= render 'show', call: @call %>

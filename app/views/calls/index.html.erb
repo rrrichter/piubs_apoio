@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2>Atendimentos solicitados</h2>
 
-<h1>Calls</h1>
-
-<table>
+<table class="table table-hover .table-striped">
   <thead>
     <tr>
       <th>Data criacao</th>
@@ -12,8 +10,8 @@
       <th>Municipio</th>
       <th>Uf</th>
       <th>Categoria</th>
-      <th>Sei</th>
-      <th>Answer</th>
+      <th>SEI</th>
+      <th>Resposta</th>
       <th colspan="3"> Opções</th>
     </tr>
   </thead>
@@ -30,13 +28,17 @@
         <td><%= call.categoria_id %></td>
         <td><%= call.sei %></td>
         <td><%= call.answer.resposta %></td>
-        <td><%= link_to 'Visualizar', call %></td>
-        <td><%= link_to 'Editar', edit_call_path(call) %></td>
+        <td><%= link_to 'Visualizar', call_show_atendimento_path(call.id), class: 'btn btn-success btn-sm', style: 'color: white' %></td>
+        <% if current_user.try(:user?) %>
+          <td><%= link_to 'Editar', edit_call_path(call), class: 'btn btn-success btn-sm', style: 'color: white' %></td>
+          <td><%= link_to 'Remover', call, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-sm', style: 'color: white' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Call', new_call_path %>
+<% if current_user.try(:user?) %>
+  <%= link_to 'Nova Solicitação', new_call_path, class: 'btn btn-primary',style: 'color: white' %>
+<% end %>

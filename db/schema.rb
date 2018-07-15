@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_07_13_210529) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.date "data"
     t.string "categoria"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_210529) do
     t.string "categoria_id"
     t.string "requerente"
     t.string "sei"
-    t.integer "answer_id"
+    t.bigint "answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_id"], name: "index_calls_on_answer_id"
@@ -62,4 +65,5 @@ ActiveRecord::Schema.define(version: 2018_07_13_210529) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "calls", "answers"
 end

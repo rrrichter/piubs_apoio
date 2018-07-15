@@ -1,29 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Data:</strong>
-  <%= @answer.data %>
-</p>
-
-<p>
-  <strong>Categoria:</strong>
-  <%= @answer.categoria %>
-</p>
-
-<p>
-  <strong>Colaborador:</strong>
-  <%= @answer.colaborador %>
-</p>
-
-<p>
-  <strong>Pergunta:</strong>
-  <%= @answer.pergunta %>
-</p>
-
-<p>
-  <strong>Resposta:</strong>
-  <%= @answer.resposta %>
-</p>
-
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Back', answers_path %>
+<br/>
+<div class="panel panel-primary">
+  <div class="panel-heading"> | Categoria : <span class="badge"> <%= @answer.categoria %> </span> | Data da criação : <span class="badge"> <%= @answer.data %>  </span></div>
+  <div class="panel-body">
+    <p>
+      <strong>Pergunta:</strong>
+      <%= @answer.pergunta %>
+    </p>
+    <p>
+      <strong>Resposta:</strong>
+      <%= @answer.resposta %>
+    </p>
+    <p>
+      <strong>Atendente:</strong>
+      <%= User.find(@answer.colaborador).email %>
+    </p>
+  </div>
+</div>
+</div>

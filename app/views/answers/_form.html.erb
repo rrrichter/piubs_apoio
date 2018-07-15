@@ -3,15 +3,14 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :data %>
+  <div class="form-inputs" style="width: 45%">
     <%= f.input :categoria %>
-    <%= f.input :colaborador %>
     <%= f.input :pergunta %>
     <%= f.input :resposta %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, value: 'Cadastrar Resposta' %>
+    <%= link_to 'Voltar', answers_path, class: 'btn ' %>
   </div>
 <% end %>

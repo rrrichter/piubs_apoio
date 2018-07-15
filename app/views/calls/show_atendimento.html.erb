@@ -1,0 +1,21 @@
+<%= render 'show', call: @call %>
+
+<script>
+ $("#new_answer").click(function(){
+   $("#faq_answer").hide();
+   $("#form_answer").show(500);
+   $("#answer_categoria").val("<%= @call.categoria_id %>");
+   $("#answer_pergunta").val("<%= @call.pergunta %>");
+   $("#call").val("<%= @call.id %>");
+ });
+
+ $("#new_faq_answer").click(function(){
+   $("#form_answer").hide();
+   $("#faq_answer").show(500);
+ });
+
+ $("#cancel").click(function(){
+    $("#form_answer").hide(500);
+ });
+
+</script>

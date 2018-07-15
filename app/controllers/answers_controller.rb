@@ -25,10 +25,18 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-
+    @answer.data  = Date.today
+    @answer.colaborador = current_user.id
+    protocol = params.require(:call)
+    @call = Call.find(protocol)
+    @call.answer_id
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        @call.answer_id = @answer.id
+        @call.status = 'Resolvido'
+        @call.data_fechamento = Date.today
+        @call.save
+        format.html { redirect_to "/call/show_atendimento/#{@call.id}" , notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

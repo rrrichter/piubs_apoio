@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@answer) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :categoria %>
+    <%= f.input :pergunta %>
+    <%= f.input :resposta %>
+    <%= text_field_tag 'call', nil, class: 'form-control string optional', style: 'display: none' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success', value: 'Salvar Resposta' %>
+    <button type="reset" value="reset" class="btn btn-success" >Limpar</button>
+    <button id="cancel" type="reset" class="btn btn-success" >Cancelar</button>
+  </div>
+<% end %>

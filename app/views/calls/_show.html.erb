@@ -1,0 +1,59 @@
+<h2>Atendimento</h2>
+<ul class="nav nav-pills" role="tablist">
+  <li role="presentation" class="active"><h4>Nº do Protocolo <span class="label label-danger"><%= @call.id %></span> </h4></li>
+</ul>
+<br/>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"> | Categoria : <span class="badge"> <%= @call.categoria_id %> </span> | Data da criação : <span class="badge"> <%= @call.data_criacao %>  </span></div>
+  <div class="panel-body">
+    <h4><%= @call.titulo %></h4>
+    <hr/>
+    <p> <strong>Requerente:</strong> <a href="#"><%= User.find(@call.requerente).email %></a></p>
+    <p> <strong>Pergunta:</strong> <%= @call.pergunta %></p>
+    <p> <strong>Perfil acesso: </strong><%= @call.perfil_acesso %>
+        <strong>Versao: </strong><%= @call.versao %>
+       <strong>Detalhe funcionalidade: </strong><%= @call.detalhe_funcionalidade %></p>
+    <hr/>
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="active">Status <span class="badge"><%= @call.status %></span> | </li>
+      <li role="presentation" class="active">Severidade <span class="badge"><%= @call.severidade %></span> | </li>
+      <li role="presentation" class="active">UF <span class="badge"><%= @call.uf %></span> | </li>
+      <li role="presentation" class="active">Município <span class="badge"><%= @call.municipio %></span></li>
+    </ul>
+  </div>
+</div>
+<% if current_user.try(:admin?) %>
+  <% if @call.answer.pergunta == 'default'%>
+    <button id="new_answer" type="button" class="btn btn-success">Nova Resposta</button>
+    <button id="new_faq_answer" type="button" class="btn btn-success">Pesquisar no FAQ</button>
+ <% end %>
+<% end %>
+<div id="form_answer" style="display: none; width: 50%">
+  <br/>
+  <%= render "form_answer" %>
+</div>
+
+<div id="faq_answer" style="display: none; width: 50%%">
+  <br/>
+  <%= form_tag(call_path, remote: true, :method => :get, class: 'form-inline' ) do %>
+    <%= text_field_tag 'search', nil, placeholder: 'Perguntas semelhantes no FAQ...', class: 'form-control string optional', style: 'width:350px' %>
+    <%= submit_tag 'Pesquisar', class: 'btn btn-primary'%>
+  <% end %>
+  <hr/>
+  <div id="answers">
+  </div>
+</div>
+<p></p>
+<div class="panel panel-primary">
+    <div class="panel-heading"> Histórico de Atendimento</span> </div>
+    <div class="panel-body">
+      <h4>Respostas</h4>
+      <% if @call.answer.pergunta != 'default'%>
+        <%= render "answers"%>
+      <% end %>
+      <% if @call.answer.pergunta == 'default'%>
+        <p><%= @call.answer.resposta %></p>
+      <% end %>
+    </div>
+</div>

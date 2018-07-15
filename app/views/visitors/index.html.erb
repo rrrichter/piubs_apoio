@@ -1,6 +1,6 @@
 <div style="text-align: center">
 <h3>PIUBS - Apoio à Empresas</h3>
-<p><%= link_to 'Atendimento:', calls_path %> <%= Call.count %> registrados</p>
+<p>Atendimento: <span class="badge badge-warning"><%= Call.count %></span>   registrados</p>
 <%= image_tag("piubs.jpg", :alt => "rss feed") %>
 <br/>
 <style>
@@ -9,15 +9,16 @@ width:  40%;
 margin: 0 auto;
 }
 </style>
+<%= form_tag(call_search_path, remote: false, :method => :get ) do %>
 <div class="row" style="text-align: center">
   <div class="inner">
       <div class="input-group">
-        
-        <input type="text" class="form-control" placeholder="Nº do protocolo">
+        <input type="number" id="id" name="id" class="form-control" placeholder="Nº do protocolo">
         <span class="input-group-btn">
           <button class="btn btn-default" type="submit" >Pesquisar</button>
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div><!-- /.row -->
+  <% end %>
 </div>
