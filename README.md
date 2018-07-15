@@ -9,10 +9,6 @@ Rails Composer is supported by developers who purchase our RailsApps tutorials.
 Problems? Issues?
 -----------
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
 
@@ -23,26 +19,31 @@ This application requires:
 
 - Ruby 2.5.1
 - Rails 5.2.0
+- PostreSQL 9.6.*
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
 Getting Started
 ---------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
+- Install application requirements listed above
+- clone project
+$ git clone https://github.com/mgfzemor/piubs_apoio.git
+- Install gems
+$ cd piubs_apoio
+$ bundle install
+- Configure you database
+Set your DB configuration in /config/database.yml
+- Create tables
+$ rake db:create db:migrate
+- Restore DB
+Restore your database "piubs_apoio" from file /db/db.backup
+- Start Server
+rails s
+- Enjoy 
 
 Credits
 -------
+mgfzemor
 
 License
 -------
