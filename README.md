@@ -48,7 +48,7 @@ Restore your database "piubs_apoio" from file /db/db.backup
 
 - Start Server
 
-rails s
+$ rails s
 
 - Enjoy 
 
