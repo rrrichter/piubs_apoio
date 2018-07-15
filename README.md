@@ -29,16 +29,27 @@ Getting Started
 - clone project
 $ git clone https://github.com/mgfzemor/piubs_apoio.git
 - Install gems
+
 $ cd piubs_apoio
+
 $ bundle install
+
 - Configure you database
+
 Set your DB configuration in /config/database.yml
+
 - Create tables
+
 $ rake db:create db:migrate
+
 - Restore DB
+
 Restore your database "piubs_apoio" from file /db/db.backup
+
 - Start Server
+
 rails s
+
 - Enjoy 
 
 Credits
