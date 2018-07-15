@@ -27,7 +27,9 @@ Getting Started
 ---------------
 - Install application requirements listed above
 - clone project
+
 $ git clone https://github.com/mgfzemor/piubs_apoio.git
+
 - Install gems
 
 $ cd piubs_apoio
@@ -50,7 +52,7 @@ Restore your database "piubs_apoio" from file /db/db.backup
 
 $ rails s
 
-- Enjoy 
+- Drink a cup of tea and enjoy it ;)
 
 Credits
 -------
