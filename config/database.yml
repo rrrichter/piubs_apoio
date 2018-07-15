@@ -7,7 +7,7 @@
 default: &default
   adapter:  postgresql
   host:     localhost
-  port: 5433
+  port: 5432
   encoding: unicode
   database: piubs_apoio
   pool:     5
